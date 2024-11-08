@@ -48,7 +48,45 @@ console.log("min=", min);
 console.log("max=", max);
 
 
+3.2 Stack (стек):
 
+- Реализуйте стек с использованием массива.
+
+function mas(...stack) {
+   const result = [];
+   while(stack.length) {
+      const el= stack.shift();
+      if (Array.isArray(el)) {
+        stack.unshift(...el);   
+      } 
+      else  result.push(el);
+   }
+return result;
+}
+console.log(mas(1, [2, 3], 4, 5, [6, 7] ));  
+
+
+3.3 Queue (очередь):
+
+- Реализуйте очередь с использованием массива.
+- Имитируйте работу очереди на примере ожидания на кассе.
+
+function queueTime(customers, n){   //n-количество касс
+if (!customers.length) {
+return 0;
+} 
+
+const queue = [...customers];
+const tills = Array(Math.min(n, customers.length)).fill(0);
+while(queue.length){
+const customer = queue.shift();
+const tillMinId = tills.indexOf(Math.min(...tills));
+tills[tillMinId] +=customer;
+}
+return Math.max(...tills);
+}
+
+console.log(queueTime([1, 2, 3, 4], 1), 10);
 
 
 
