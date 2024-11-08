@@ -1,0 +1,58 @@
+1) Написать ответ - почему массивы в JS являются "неправильными" и совмещают в себе несколько структур данных? Какие ?
+
+ Массивы в JS являются "неправильными" потому, что сочетают в себе функции других структур данных(таких как очередь, матрица, объект, стек), и могут сохранять разные типы данных.
+
+2) Привязать контекст объекта к функции logger, чтобы при вызове this.item выводило - some value (Привязать через bind, call, apply)
+function logger() {
+    console.log(`I output only external context: ${this.item}`);
+}
+const obj = { item: "some value" };
+
+-logger.apply(obj);
+-logger.call(obj);
+-logger.bind(obj);
+
+3.1 Массивы:
+
+- Создайте массив чисел и найдите его сумму.
+
+function summa(...args) {
+return args.reduce((acc, item) => acc + item);
+}
+const massiv = [];
+console.log(summa.apply(massiv, [1, 3, 5, 7, 9] ));
+
+или второй способ:
+
+var arr = [1, 2, 3, 4, 5];
+var result = arr.reduce(function(sum, current) {
+  return sum + current;
+}, 0);
+alert(result); 
+
+
+- Создайте массив строк и объедините их в одну строку.
+const animals = ['tiger', 'dog', 'cat'];
+console.log(animals.join());
+
+- Найдите максимальный и минимальный элементы в массиве чисел.
+
+const nums = [2, 8, 7];
+const compareFn = (a, b) => a - b;
+nums.sort(compareFn);
+
+let min = nums[0];
+let max= nums[nums.length - 1];
+
+console.log("min=", min);
+console.log("max=", max);
+
+
+
+
+
+
+
+
+
+  
